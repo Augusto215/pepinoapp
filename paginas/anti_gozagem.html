@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BANANA APP</title>
+	<link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/listar_pdf.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+	<main id="container">
+        <div class="top-header" style=" padding:1rem 0;">
+			<span style="color:#fff !important; font-size:1.3rem !important;"> Olá <span class="nomeSalvo"></span>!</span>
+
+			</div>
+<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
+    <img style="max-height: 4rem !important; width: auto !important;" src="../src/img/gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
+</header>        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var nomeSalvo = localStorage.getItem('nome');
+                nomeSpan = document.querySelector('.nomeSalvo')
+                nomeSpan.textContent = nomeSalvo;
+              
+               
+                
+            });
+            </script>		
+		<section class="listar_cards">
+			<div class="card" onclick="window.location.href='anti_gozagem_pdf.html'">
+				<img src="../src/img/anti_gozagem-01.png">
+				<h2>Anti Gozagem</h2>
+			</div>
+			<div class="card" onclick="window.location.href='anti_gozagem_video.html'">
+				<img src="../src/img/overlay_video.gif">
+				<h2>Anti Gozagem (Vídeo)</h2>
+			</div>
+		</section>
+	</main>
+</body>
+</html> 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PEPINO APP</title>
+	<link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="manifest" href="manifest.json"/>
+</head>
+<body>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        input
+        {
+            width:90% !important;
+            outline: none;
+            height: 1.6rem !important;
+            font-size: 1rem !important;
+            border: none;
+            border-radius:4px;
+        }   
+
+        label
+        {
+            text-align: start !important;
+            color:#fff !important;
+            font-size: 1.1rem !important;
+        }
+    </style>
+	<main id="container">
+		<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
+			<img style="max-height: 4rem !important; width: auto !important;" src="src\img\gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
+		</header>
+		<div class="carousel-container">
+		    <div class="carousel">
+		      <img src="src\img\dainis-graveris-KU_NTjlJovE-unsplash.jpg" style="object-fit: cover !important;" alt="Imagem 1">
+		    </div>
+		</div>
+        <div style="padding: 0 5% ">
+        <h3 style="margin: 1rem 0; color:#fff;">Lorem Ipsum</h3>
+        <p style="text-align:start !important; color:#fff !important;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam molestie tincidunt diam ac vehicula. Vivamus auctor, libero nec ultrices porttitor, magna purus iaculis dui, ac ultrices enim erat at enim. In facilisis cursus felis.
+             Phasellus at condimentum purus. Nullam sed sem tempus, pellentesque risus vitae, bibendum justo. Donec quis volutpat nisl.
+             Nullam nulla arcu, molestie vitae consequat suscipit, semper sit amet libero. Aliquam erat volutpat. Duis eget diam sit amet turpis bibendum sagittis.</p>
+            </div>
+			<form style="margin-top:1.5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+               <div class="form-field"><label for="nome">Nome:</label>
+                <input id="nome" required>
+            </div> 
+
+            <div class="form-field">
+                <label for="idade">Idade:</label>
+                <input id="idade" required>
+            </div>
+
+            <div class="form-field">
+                <label for="peso">Peso:</label>
+                <input id="peso" required>
+            </div>
+
+            <div class="form-field">
+                <label for="altura">Altura:</label>
+                <input id="altura" required>
+            </div>
+		<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+			<img style="max-width: 80%;" src="src/img/5a0c43a45a997e1c2cea1193.png">
+			<a href="app.html" type="submit" style="width: 80%; " id="prosseguirLink" class="btn_card">Gerar Receita com Base nos meus Dados</a>
+		</div>
+    </form>
+
+	</main>
+	<script>
+        function instalar_pwa() {
+        	if (localStorage.pwa) {} else {
+	            if ('serviceWorker' in navigator && 'PushManager' in window) {
+	                window.addEventListener('load', () => {
+	                    if (!window.matchMedia('(display-mode: standalone)').matches) {
+	                        deferredPrompt.prompt();
+	                        deferredPrompt.userChoice.then((choiceResult) => {
+	                            if (choiceResult.outcome === 'accepted') {
+	                                localStorage.setItem('pwa', 'accepted');
+	                            } else {
+	                                localStorage.setItem('pwa', 'rejected');
+	                            }
+	                            deferredPrompt = null;
+	                        });
+	                    }
+	                });
+
+	                let deferredPrompt;
+	                window.addEventListener('beforeinstallprompt', (e) => {
+	                    e.preventDefault();
+	                    deferredPrompt = e;
+	                });
+	            }
+        	}
+        }
+
+        window.addEventListener("click", () => {
+        	instalar_pwa()
+		}, { once: true });
+    </script>
+
+<script>
+    document.getElementById('prosseguirLink').addEventListener('click', function(event) {
+var nome = document.getElementById('nome').value;
+var idade = document.getElementById('idade').value;
+var peso = document.getElementById('peso').value;
+var altura = document.getElementById('altura').value;
+
+
+
+localStorage.setItem('nome', nome);
+localStorage.setItem('idade', idade);
+localStorage.setItem('peso', peso);
+localStorage.setItem('altura', altura);
+
+});
+
+
+</script>
+
+</body>
+</html>

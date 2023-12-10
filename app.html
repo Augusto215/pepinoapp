@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PEPINO APP</title>
+	<link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="manifest" href="manifest.json"/>
+</head>
+<body>
+	<main id="container">
+		<div class="top-header" style=" padding:1rem 0;">
+			<span style="color:#fff !important; font-size:1.3rem !important;"> Olá <span class="nomeSalvo"></span>!</span>
+
+			</div>
+<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
+			<img style="max-height: 4rem !important; width: auto !important;" src="src\img\gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
+		</header>        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var nomeSalvo = localStorage.getItem('nome');
+                nomeSpan = document.querySelector('.nomeSalvo')
+                nomeSpan.textContent = nomeSalvo;
+              
+               
+                
+            });
+            </script>		
+		<div class="carousel-container">
+		    <div class="carousel">
+				<img src="src\img\dainis-graveris-KU_NTjlJovE-unsplash.jpg" style="object-fit: cover !important;" alt="Imagem 1">
+		    </div>
+		</div>
+		<section id="cards_pdf">
+			<div class="card" onclick="window.location.href='paginas/anti_gozagem_inicio.html'">
+				<img src="src/img/anti_gozagem.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Anti-Gozagem</p>
+			</div>
+			<div class="card" onclick="window.location.href='paginas/pepino_inicio.html'">
+				<img src="src/img/truque_pepino.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Truque do pepino</p>
+			</div>
+			<div class="card" onclick="window.location.href='paginas/fonte_juventude_inicio.html'">
+				<img src="src/img/fonte_juventude.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Fonte da juventude</p>
+			</div>
+			<div class="card" onclick="window.location.href='paginas/pau_cavalo_inicio.html'">
+				<img src="src/img/pau_cavalo.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Pau de cavalo</p>
+			</div>
+		</section>
+		<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+			<img style="max-width: 80%;" src="src/img/5a0c43a45a997e1c2cea1193.png">
+			<a href="app.html" type="submit" style="width: 80%; " id="prosseguirLink" class="btn_card">Comprar</a>
+		</div>
+	</main>
+	<script>
+        function instalar_pwa() {
+        	if (localStorage.pwa) {} else {
+	            if ('serviceWorker' in navigator && 'PushManager' in window) {
+	                window.addEventListener('load', () => {
+	                    if (!window.matchMedia('(display-mode: standalone)').matches) {
+	                        deferredPrompt.prompt();
+	                        deferredPrompt.userChoice.then((choiceResult) => {
+	                            if (choiceResult.outcome === 'accepted') {
+	                                localStorage.setItem('pwa', 'accepted');
+	                            } else {
+	                                localStorage.setItem('pwa', 'rejected');
+	                            }
+	                            deferredPrompt = null;
+	                        });
+	                    }
+	                });
+
+	                let deferredPrompt;
+	                window.addEventListener('beforeinstallprompt', (e) => {
+	                    e.preventDefault();
+	                    deferredPrompt = e;
+	                });
+	            }
+        	}
+        }
+
+        window.addEventListener("click", () => {
+        	instalar_pwa()
+		}, { once: true });
+    </script>
+</body>
+</html>
