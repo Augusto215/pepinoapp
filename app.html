@@ -6,30 +6,66 @@
 	<title>PEPINO APP</title>
 	<link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/home.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="manifest" href="manifest.json"/>
 </head>
 <body>
+	<style>
+		@font-face {
+			font-family: 'action';
+			src: url('./fonts/KOMIKAX_.ttf') format('truetype');
+			font-weight: 500; /* Peso para Light */
+			font-style: normal;
+		}
+		
+		.title-span
+		{
+		  font-family: 'action', sans-serif !important;
+		  color:rgb(255, 255, 0) !important;
+		
+		font-size:2.4rem !important;}
+				@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+		
+				input
+				{
+					width:90% !important;
+					outline: none;
+					height: 1.6rem !important;
+					font-size: 1rem !important;
+					border: none;
+					border-radius:4px;
+				}   
+		
+				label
+				{
+					text-align: start !important;
+					color:#fff !important;
+					font-size: 1.1rem !important;
+				}
+			</style>
 	<main id="container">
 		<div class="top-header" style=" padding:1rem 0;">
-			<span style="color:#fff !important; font-size:1.3rem !important;"> Olá <span class="nomeSalvo"></span>!</span>
+			<span style="color:#fff !important; font-size:1.3rem !important;"> Estilo de vida: <span class="nomeSalvo"></span>!</span>
 
 			</div>
-<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
-			<img style="max-height: 4rem !important; width: auto !important;" src="src\img\gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
-		</header>        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var nomeSalvo = localStorage.getItem('nome');
-                nomeSpan = document.querySelector('.nomeSalvo')
-                nomeSpan.textContent = nomeSalvo;
-              
-               
-                
-            });
-            </script>		
+			<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
+				<span class="title-span" style="  text-shadow: 
+				1.5px 1.5px 0 #000,   /* Sombra superior direita */
+				-1.5px 1.5px 0 #000,  /* Sombra superior esquerda */
+				1.5px -1.5px 0 #000,  /* Sombra inferior direita */
+				-1.5px -1.5px 0 #000; /* Sombra inferior esquerda */"> Semente APP</span><img style="max-height: 3.5rem !important; width: auto !important; max-width: 100%;" src="src\img\Sesame-Seeds-PNG-File.png">
+			</header>       </div>
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					var estiloVida = localStorage.getItem('estiloVida'); // Use o mesmo nome de chave
+					var estiloVidaSpan = document.querySelector('.nomeSalvo'); // Selecione o elemento correto
+					if(estiloVidaSpan) {
+						estiloVidaSpan.textContent = estiloVida; // Defina o conteúdo de texto
+					}
+				});
+			</script>	
 		<div class="carousel-container">
 		    <div class="carousel">
 				<img src="src\img\dainis-graveris-KU_NTjlJovE-unsplash.jpg" style="object-fit: cover !important;" alt="Imagem 1">
@@ -38,23 +74,34 @@
 		<section id="cards_pdf">
 			<div class="card" onclick="window.location.href='paginas/anti_gozagem_inicio.html'">
 				<img src="src/img/anti_gozagem.png" class="imagem_card">
-				<p style="color:#fff !important;" class="texto_card">Anti-Gozagem</p>
+				<p style="color:#fff !important;" class="texto_card">Demora-Gozagem</p>
 			</div>
 			<div class="card" onclick="window.location.href='paginas/pepino_inicio.html'">
 				<img src="src/img/truque_pepino.png" class="imagem_card">
-				<p style="color:#fff !important;" class="texto_card">Truque do pepino</p>
+				<p style="color:#fff !important;" class="texto_card">Fonte do Vigor</p>
 			</div>
 			<div class="card" onclick="window.location.href='paginas/fonte_juventude_inicio.html'">
-				<img src="src/img/fonte_juventude.png" class="imagem_card">
-				<p style="color:#fff !important;" class="texto_card">Fonte da juventude</p>
+				<img src="src/img/Sesame-Seeds-PNG-File.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Truque das Sementes</p>
 			</div>
 			<div class="card" onclick="window.location.href='paginas/pau_cavalo_inicio.html'">
-				<img src="src/img/pau_cavalo.png" class="imagem_card">
-				<p style="color:#fff !important;" class="texto_card">Pau de cavalo</p>
+				<img src="src/img/lion-51-1024x1024 (1).png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Pau de Leão</p>
 			</div>
+
+			<div class="card" onclick="window.location.href='paginas/pau_cavalo_inicio.html'">
+				<img style="border-radius:4px; height: 6rem; object-fit: cover;" src="src\img\photo-1593309404036-8e39088b6071.avif" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Música do prazer</p>
+			</div>
+
+			<div class="card" onclick="window.location.href='paginas/pau_cavalo_inicio.html'">
+				<img style="border-radius:4px; height: 6rem; object-fit: cover;" src="src\img\igor-starkov-g1MNr0I25GI-unsplash.jpg" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Dona Fogosa</p>
+			</div>
+
 		</section>
 		<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-			<img style="max-width: 80%;" src="src/img/5a0c43a45a997e1c2cea1193.png">
+			<img style="max-width: 80%; " src="src/img/5a0c43a45a997e1c2cea1193.png ">
 			<a href="app.html" type="submit" style="width: 80%; " id="prosseguirLink" class="btn_card">Comprar</a>
 		</div>
 	</main>

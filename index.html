@@ -13,7 +13,19 @@
 </head>
 <body>
     <style>
+@font-face {
+    font-family: 'action';
+    src: url('./fonts/KOMIKAX_.ttf') format('truetype');
+    font-weight: 500; /* Peso para Light */
+    font-style: normal;
+}
 
+.title-span
+{
+  font-family: 'action', sans-serif !important;
+  color:rgb(255, 255, 0) !important;
+
+font-size:2.4rem !important;}
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
         input
@@ -35,7 +47,11 @@
     </style>
 	<main id="container">
 		<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
-			<img style="max-height: 4rem !important; width: auto !important;" src="src\img\gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
+			<span class="title-span" style="  text-shadow: 
+			1.5px 1.5px 0 #000,   /* Sombra superior direita */
+			-1.5px 1.5px 0 #000,  /* Sombra superior esquerda */
+			1.5px -1.5px 0 #000,  /* Sombra inferior direita */
+			-1.5px -1.5px 0 #000; /* Sombra inferior esquerda */"> Semente APP</span><img style="max-height: 3.5rem !important; width: auto !important; max-width: 100%;" src="src\img\Sesame-Seeds-PNG-File.png">
 		</header>
 		<div class="carousel-container">
 		    <div class="carousel">
@@ -48,31 +64,65 @@
              Phasellus at condimentum purus. Nullam sed sem tempus, pellentesque risus vitae, bibendum justo. Donec quis volutpat nisl.
              Nullam nulla arcu, molestie vitae consequat suscipit, semper sit amet libero. Aliquam erat volutpat. Duis eget diam sit amet turpis bibendum sagittis.</p>
             </div>
-			<form style="margin-top:1.5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
-               <div class="form-field"><label for="nome">Nome:</label>
-                <input id="nome" required>
-            </div> 
+			<form onsubmit="event.preventDefault(); window.location = 'http://127.0.0.1:5500/app.html';" style="margin-top:1.5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;" id="meuFormulario" method="post">
+				
+				<div style="margin-bottom: 1.5rem; margin-top: 1.5rem !important;">
+					<span style="color:#fff; font-size:1.2rem !important;">Estilo de vida:</span>
+					<div style="display: flex !important; margin-top: 1rem !important; gap:1rem;">
+					<div style="width: 100%;">
+						<input style="width: 100%;" type="checkbox" id="estiloAtletico" name="estiloVida" value="Atlético">
+						<label for="estiloAtletico">Atlético</label>
+					</div>
+					<div style="width: 100%;">
+						<input style="width: 100%;" type="checkbox" id="estiloSedentario" name="estiloVida" value="Sedentário">
+						<label for="estiloSedentario">Sedentário</label>
+					</div>
+				</div>
+				</div>
+				<div class="form-field">
+					<label for="idade">Idade:</label>
+					<input id="idade" required>
+				</div>
+			
+				<div class="form-field">
+					<label for="peso">Peso:</label>
+					<input id="peso" required>
+				</div>
+			
+				<div class="form-field">
+					<label for="altura">Altura:</label>
+					<input id="altura" required>
+				</div>
+			
+				<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+					<img style="max-width: 80%;" src="src\img\Sesame-Seeds-PNG-File.png">
+					<button type="submit" style="width: 80%;" id="prosseguirLink" class="btn_card">Gerar Receita com Base nos meus Dados</button>
+				</div>
+			</form>
 
-            <div class="form-field">
-                <label for="idade">Idade:</label>
-                <input id="idade" required>
-            </div>
+			
+<script>
+    function formatarAlturaPeso(valor, unidade) {
+        valor = valor.replace(/\D/g, ''); // Remove tudo que não é dígito
+        return valor ? `${valor} ${unidade}` : '';
+    }
 
-            <div class="form-field">
-                <label for="peso">Peso:</label>
-                <input id="peso" required>
-            </div>
+    function apenasNumeros(valor) {
+        return valor.replace(/\D/g, '');
+    }
 
-            <div class="form-field">
-                <label for="altura">Altura:</label>
-                <input id="altura" required>
-            </div>
-		<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-			<img style="max-width: 80%;" src="src/img/5a0c43a45a997e1c2cea1193.png">
-			<a href="app.html" type="submit" style="width: 80%; " id="prosseguirLink" class="btn_card">Gerar Receita com Base nos meus Dados</a>
-		</div>
-    </form>
+    document.getElementById('altura').addEventListener('input', function (e) {
+        e.target.value = formatarAlturaPeso(e.target.value, 'cm');
+    });
 
+    document.getElementById('peso').addEventListener('input', function (e) {
+        e.target.value = formatarAlturaPeso(e.target.value, 'kg');
+    });
+
+    document.getElementById('idade').addEventListener('input', function (e) {
+        e.target.value = apenasNumeros(e.target.value);
+    });
+</script>
 	</main>
 	<script>
         function instalar_pwa() {
@@ -119,10 +169,60 @@ localStorage.setItem('nome', nome);
 localStorage.setItem('idade', idade);
 localStorage.setItem('peso', peso);
 localStorage.setItem('altura', altura);
+var estiloAtletico = document.getElementById('estiloAtletico').checked;
+        var estiloSedentario = document.getElementById('estiloSedentario').checked;
 
+        var estiloVida = estiloAtletico ? "Atlético" : estiloSedentario ? "Sedentário" : null;
+        
+        localStorage.setItem('estiloVida', estiloVida);
+    });
+
+ // Função para desmarcar um checkbox quando o outro é marcado
+ function toggleCheckbox(checkboxId) {
+        var checkboxes = ['estiloAtletico', 'estiloSedentario'];
+        checkboxes.forEach(function(id) {
+            if (id !== checkboxId) {
+                document.getElementById(id).checked = false;
+            }
+        });
+    }
+
+    // Adicionando listeners aos checkboxes
+    document.getElementById('estiloAtletico').addEventListener('change', function() {
+        toggleCheckbox('estiloAtletico');
+    });
+    document.getElementById('estiloSedentario').addEventListener('change', function() {
+        toggleCheckbox('estiloSedentario');
+    });
+</script>
+
+<script>
+
+document.getElementById('prosseguirLink').addEventListener('click', function(event) {
+    // Prevenir comportamento padrão do formulário
+    event.preventDefault();
+
+    // Coletar dados do formulário
+    var nome = document.getElementById('nome') ? document.getElementById('nome').value : null;
+    var idade = document.getElementById('idade').value;
+    var peso = document.getElementById('peso').value;
+    var altura = document.getElementById('altura').value;
+    var estiloAtletico = document.getElementById('estiloAtletico').checked;
+    var estiloSedentario = document.getElementById('estiloSedentario').checked;
+
+    // Determinar estilo de vida
+    var estiloVida = estiloAtletico ? "Atlético" : estiloSedentario ? "Sedentário" : null;
+
+    // Armazenar no localStorage
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('idade', idade);
+    localStorage.setItem('peso', peso);
+    localStorage.setItem('altura', altura);
+    localStorage.setItem('estiloVida', estiloVida);
+
+    // Redirecionar após armazenar os dados
+    window.location = 'http://127.0.0.1:5500/app.html';
 });
-
-
 </script>
 
 </body>

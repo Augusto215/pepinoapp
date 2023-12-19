@@ -14,14 +14,50 @@
 <body>
 	<main id="container">
         <div class="top-header" style=" padding:1rem 0;">
-			<span style="color:#fff !important; font-size:1.3rem !important;"> Olá <span class="nomeSalvo"></span>!</span>
+			<span style="font-size:1.3rem !important; color:#fff !important;"> Estilo de vida: <span class="nomeSalvo"></span>!</span>
 
 			</div>
-<header style="display: flex; align-items: center; justify-content: center; gap:1rem">
-    <img style="max-height: 4rem !important; width: auto !important;" src="../src/img/gender.png"><span class="title-span" style=" color:#fff !important;"> Semente APP</span>
-    <br>
-			<a href="../app.html">← Voltar</a>
-</header>        </div>
+			<style>
+				@font-face {
+					font-family: 'action';
+					src: url('./fonts/KOMIKAX_.ttf') format('truetype');
+					font-weight: 500; /* Peso para Light */
+					font-style: normal;
+				}
+				
+				.title-span
+				{
+				  font-family: 'action', sans-serif !important;
+				
+				font-size:2.4rem !important;}
+						@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+				
+						input
+						{
+							width:90% !important;
+							outline: none;
+							height: 1.6rem !important;
+							font-size: 1rem !important;
+							border: none;
+							border-radius:4px;
+						}   
+				
+						label
+						{
+							text-align: start !important;
+							color:#fff !important;
+							font-size: 1.1rem !important;
+						}
+					</style>
+					<main id="container">
+						<header style="display: flex; align-items: center; justify-content: center; gap:1rem; margin-bottom: 1rem;">
+							<span class="title-span" style="  text-shadow: 
+							1.5px 1.5px 0 #000,   /* Sombra superior direita */
+							-1.5px 1.5px 0 #000,  /* Sombra superior esquerda */
+							1.5px -1.5px 0 #000,  /* Sombra inferior direita */
+							-1.5px -1.5px 0 #000; /* Sombra inferior esquerda */"> Semente APP</span><img style="max-height: 3.5rem !important; width: auto !important; max-width: 100%;" src="../src\img\Sesame-Seeds-PNG-File.png">
+						</header>   
+						<a href="../app.html" style="color:#fff !important;">Voltar</a>    </div>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var nomeSalvo = localStorage.getItem('nome');
@@ -32,8 +68,9 @@
                 
             });
             </script>		
-		<section class="pdf">
-			<img src="../src/pdf/fonte_juventude/fonte_juventude-01.png">
+		<section class="pdf" style="margin-top:1rem">
+			<img  src="../src/pdf/fonte_juventude/Slice 3 (2).png">
+			<img src="../src/pdf/fonte_juventude/fonte_juventude-09.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-02.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-03.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-04.png">
@@ -41,12 +78,20 @@
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-06.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-07.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-08.png">
-	        <img src="../src/pdf/fonte_juventude/fonte_juventude-09.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-10.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-11.png">
 	        <img src="../src/pdf/fonte_juventude/fonte_juventude-12.png">
-	        <img src="../src/pdf/fonte_juventude/fonte_juventude-13.png">
+	        <img src="../src/pdf/fonte_juventude/Slice 4 (2).png">
 		</section>
 	</main>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var estiloVida = localStorage.getItem('estiloVida'); // Use o mesmo nome de chave
+			var estiloVidaSpan = document.querySelector('.nomeSalvo'); // Selecione o elemento correto
+			if(estiloVidaSpan) {
+				estiloVidaSpan.textContent = estiloVida; // Defina o conteúdo de texto
+			}
+		});
+	</script>	
 </body>
 </html>
