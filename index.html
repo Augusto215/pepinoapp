@@ -51,7 +51,7 @@ font-size:2.4rem !important;}
 			1.5px 1.5px 0 #000,   /* Sombra superior direita */
 			-1.5px 1.5px 0 #000,  /* Sombra superior esquerda */
 			1.5px -1.5px 0 #000,  /* Sombra inferior direita */
-			-1.5px -1.5px 0 #000; /* Sombra inferior esquerda */"> Semente APP</span><img style="max-height: 3.5rem !important; width: auto !important; max-width: 100%;" src="src\img\Sesame-Seeds-PNG-File.png">
+			-1.5px -1.5px 0 #000; /* Sombra inferior esquerda */"> Semente APP</span><img style="max-height: 3.5rem !important; width: auto !important; max-width: 100%;" src="src\img\flax-seed (1).png">
 		</header>
 		<div class="carousel-container">
 		    <div class="carousel">
@@ -64,7 +64,7 @@ font-size:2.4rem !important;}
              Phasellus at condimentum purus. Nullam sed sem tempus, pellentesque risus vitae, bibendum justo. Donec quis volutpat nisl.
              Nullam nulla arcu, molestie vitae consequat suscipit, semper sit amet libero. Aliquam erat volutpat. Duis eget diam sit amet turpis bibendum sagittis.</p>
             </div>
-			<form onsubmit="event.preventDefault(); window.location = 'https://sementeapp.onrender.com/app.html';" style="margin-top:1.5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;" id="meuFormulario" method="post">
+			<form id="meuFormulario" onsubmit="event.preventDefault(); window.location = 'https://sementeapp.onrender.com/app.html';" style="margin-top:1.5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;" id="meuFormulario" method="post">
 				
 				<div style="margin-bottom: 1.5rem; margin-top: 1.5rem !important;">
 					<span style="color:#fff; font-size:1.2rem !important;">Estilo de vida:</span>
@@ -95,11 +95,38 @@ font-size:2.4rem !important;}
 				</div>
 			
 				<div class="card_pepino_produto" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-					<img style="max-width: 80%;" src="src\img\Sesame-Seeds-PNG-File.png">
+					<img style="max-width: 80%;" src="src\img\5a0c43a45a997e1c2cea1193.png">
 					<button type="submit" style="width: 80%;" id="prosseguirLink" class="btn_card">Gerar Receita com Base nos meus Dados</button>
 				</div>
 			</form>
-
+            <script>
+                function verificarFormulario() {
+                    var form = document.getElementById('meuFormulario');
+                    var estiloAtletico = document.getElementById('estiloAtletico').checked;
+                    var estiloSedentario = document.getElementById('estiloSedentario').checked;
+                    
+                    if (form.checkValidity() && (estiloAtletico || estiloSedentario)) {
+                        document.getElementById('prosseguirLink').disabled = false;
+                    } else {
+                        document.getElementById('prosseguirLink').disabled = true;
+                    }
+                }
+            
+                function verificarFormularioEExibirAlerta() {
+                    if (document.getElementById('prosseguirLink').disabled) {
+                        alert('Por favor, preencha todos os campos obrigatórios e selecione um estilo de vida.');
+                    } else {
+                        // Aqui você pode adicionar a lógica de submissão do formulário
+                        // Por exemplo: document.getElementById('meuFormulario').submit();
+                    }
+                }
+            
+                document.querySelectorAll('#meuFormulario input').forEach(input => {
+                    input.addEventListener('input', verificarFormulario);
+                });
+            
+                verificarFormulario();
+            </script>
 			
 <script>
     function formatarAlturaPeso(valor, unidade) {
@@ -221,7 +248,7 @@ document.getElementById('prosseguirLink').addEventListener('click', function(eve
     localStorage.setItem('estiloVida', estiloVida);
 
     // Redirecionar após armazenar os dados
-    window.location = 'https://sementeapp.onrender.com/app.html';
+    window.location = 'http://127.0.0.1:5501/app.html';
 });
 </script>
 
