@@ -6,16 +6,20 @@
 	<title>BANANA APP</title>
 	<link rel="icon" type="image/x-icon" href="src/img/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/listar_pdf.css">
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-	<main id="container">
+	<main id="container" style="padding-bottom: 0 !important;">
         <div class="top-header" style=" padding:1rem 0;">
 			<span style="font-size:1.3rem !important; color:#fff !important;"> Estilo de vida: <span class="nomeSalvo"></span>!</span>
 
 			</div>
+
+		
+
 			<style>
 				@font-face {
 					font-family: 'action';
@@ -68,16 +72,76 @@
             });
             </script>		
 		<section class="listar_cards">
+			<style>
+				#cards_pdf {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card1 {
+  width: 40%;
+  margin: 3% 0;
+  padding: 3% 0;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.card1 img
+{
+	max-width: 90%;
+	height: 6rem;
+}
+
+.card1 p
+{
+	font-size: 1.3rem !important;
+}
+
+			</style>
 			<div class="card" onclick="window.location.href='fonte_juventude_pdf.html'">
 				<img src="../src/img/5a0c43a45a997e1c2cea1193.png">
 				<h2>Truque das Sementes</h2>
 			</div>
+			
 			<div class="card" onclick="window.location.href='fonte_juventude_video.html'">
 				<img src="../src/img/overlay_video.gif">
 				<h2>Truque das Sementes (Vídeo)</h2>
 			</div>
 		</section>
+
+		<h2 class="text-center mt-5 mb-3" style="color:#fff; font-weight: 500;">Veja Também</h2>
+		<section id="cards_pdf">
+
+			<div class="card1" onclick="window.location.href='https://drdoseuamigo.fun/capsicum/'">
+				<img style="height: 6rem;" src="../src/img/2-1024x1024.png.webp" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Capsicum</p>
+			</div>
+			<div class="card1" onclick="window.location.href='https://drdoseuamigo.fun/honey-caps/'">
+				<img src="../src/img/D_NQ_NP_925281-MLB72122878032_102023-O (1).png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Honey Caps</p>
+			</div>
+
+			<div class="card1" onclick="window.location.href='https://drdoseuamigo.fun/maca-negra/'">
+				<img style="height: 6rem; " src="../src\img\pote_principal.webp ">
+				<p style="color:#fff !important;" class="texto_card">Maca Negra</p>
+			</div>
+
+			<div class="card1" onclick="window.location.href='https://drdoseuamigo.fun/max-power/'">
+				<img style="border-radius:4px; height: 6rem; object-fit: cover;" src="../src\img\max-power-2-potes.png" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Max Power</p>
+			</div>
+
+			<div class="card1" onclick="window.location.href='https://drdoseuamigo.fun/mulondo/'">
+				<img style="border-radius:4px; height: 6rem; object-fit: cover;" src="../src\img\USO-ORAL (1).png
+				" class="imagem_card">
+				<p style="color:#fff !important;" class="texto_card">Max Power</p>
+			</div>
+		</section>
 	</main>
+	
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			var estiloVida = localStorage.getItem('estiloVida'); // Use o mesmo nome de chave
